@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 
-class CheetahButton extends StatelessWidget {
+class CustomButton extends StatelessWidget {
   final Function onPressed;
   final String text;
 
-  const CheetahButton({this.onPressed, this.text});
+  const CustomButton({this.onPressed, this.text});
 
   @override
   Widget build(BuildContext context) {

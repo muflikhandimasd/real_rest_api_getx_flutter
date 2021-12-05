@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:real_rest_api_getx_flutter/controller/framework_controller.dart';
 import 'package:real_rest_api_getx_flutter/model/framework.dart';
-import 'package:real_rest_api_getx_flutter/widgets/cheetah_button.dart';
+import 'package:real_rest_api_getx_flutter/widgets/custom_button.dart';
 
 // ignore: use_key_in_widget_constructors
 class Home extends StatelessWidget {
@@ -67,168 +67,98 @@ class Home extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('REST APIs with Dio GetX '),
+        title: const Text('CRUD Data Penjualan'),
         centerTitle: true,
       ),
       body: Container(
-        padding: const EdgeInsets.all(24),
+        padding: const EdgeInsets.all(18),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            GetBuilder<FrameworkController>(
-              builder: (controller) => const Text(
-                
-                "Data Penjualan Warung Sederhana",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const Text(
-              'Nama Barang',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(
-              height: 4,
-            ),
-            TextField(
+            TextFormField(
               controller: namaBarangController,
               cursorColor: Colors.black,
-              decoration: InputDecoration(
-                hintText: 'Nama Barang',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(9),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(
-                    9,
-                  ),
-                  borderSide: const BorderSide(
-                    color: Colors.purple,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            const Text(
-              'Stok',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              keyboardType: TextInputType.name,
+              decoration: const InputDecoration(label: Text('Nama Barang')),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter some text';
+                } else {
+                  return null;
+                }
+              },
             ),
             const SizedBox(
               height: 4,
             ),
-            TextField(
+            TextFormField(
               controller: stokController,
               cursorColor: Colors.black,
-              decoration: InputDecoration(
-                hintText: 'Stok',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(9),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(
-                    9,
-                  ),
-                  borderSide: const BorderSide(
-                    color: Colors.purple,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            const Text(
-              'Jumlah Terjual',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(label: Text('Stok')),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter some text';
+                } else {
+                  return null;
+                }
+              },
             ),
             const SizedBox(
               height: 4,
             ),
-            TextField(
+            TextFormField(
               controller: jumlahTerjualController,
               cursorColor: Colors.black,
-              decoration: InputDecoration(
-                hintText: 'Jumlah Terjual',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(9),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(
-                    9,
-                  ),
-                  borderSide: const BorderSide(
-                    color: Colors.purple,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            const Text(
-              'Jenis Barang',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(label: Text('Jumlah Terjual')),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter some text';
+                } else {
+                  return null;
+                }
+              },
             ),
             const SizedBox(
               height: 4,
             ),
-            TextField(
+            TextFormField(
               controller: jenisBarangController,
               cursorColor: Colors.black,
-              decoration: InputDecoration(
-                hintText: 'Jenis Barang',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(9),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(
-                    9,
-                  ),
-                  borderSide: const BorderSide(
-                    color: Colors.purple,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            const Text(
-              'Tanggal Transaksi',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              keyboardType: TextInputType.name,
+              decoration: const InputDecoration(label: Text('Jenis Barang')),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter some text';
+                } else {
+                  return null;
+                }
+              },
             ),
             const SizedBox(
               height: 4,
             ),
-            TextField(
+            TextFormField(
               controller: tanggalTransaksiController,
               cursorColor: Colors.black,
-              decoration: InputDecoration(
-                hintText: 'Tanggal Transaksi',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(9),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(
-                    9,
-                  ),
-                  borderSide: const BorderSide(
-                    color: Colors.purple,
-                  ),
-                ),
-              ),
+              keyboardType: TextInputType.datetime,
+              decoration:
+                  const InputDecoration(label: Text('Tanggal Transaksi')),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter some text';
+                } else {
+                  return null;
+                }
+              },
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 GetBuilder<FrameworkController>(
-                  builder: (controller) => CheetahButton(
+                  builder: (controller) => CustomButton(
                     onPressed: controller.selectedFramework == null
                         ? () => onAddPressed()
                         : null,
@@ -236,7 +166,7 @@ class Home extends StatelessWidget {
                   ),
                 ),
                 GetBuilder<FrameworkController>(
-                  builder: (controller) => CheetahButton(
+                  builder: (controller) => CustomButton(
                     onPressed: controller.selectedFramework == null
                         ? null
                         : () =>
@@ -244,7 +174,7 @@ class Home extends StatelessWidget {
                     text: "Update",
                   ),
                 ),
-                CheetahButton(
+                CustomButton(
                   onPressed: () => onClearPressed(),
                   text: "Clear",
                 ),
@@ -267,27 +197,33 @@ class Home extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     const SizedBox(height: 8),
-                                    Text(controller
-                                            .frameworks[index].nama_barang ??
+                                    Text('Nama Barang : ' +
+                                            controller.frameworks[index]
+                                                .nama_barang ??
                                         'default value'),
                                     const SizedBox(height: 4),
-                                    Text(controller.frameworks[index].stok
-                                            .toString() ??
+                                    Text('Stok : ' +
+                                            controller.frameworks[index].stok
+                                                .toString() ??
                                         'default value'),
                                     const SizedBox(height: 8),
-                                    Text(controller
-                                            .frameworks[index].jumlah_terjual
-                                            .toString() ??
+                                    Text('Jumlah Terjual : ' +
+                                            controller.frameworks[index]
+                                                .jumlah_terjual
+                                                .toString() ??
                                         'default value'),
                                     const SizedBox(height: 4),
-                                    Text(controller
-                                            .frameworks[index].jenis_barang ??
+                                    Text('Jenis Barang : ' +
+                                            controller.frameworks[index]
+                                                .jenis_barang ??
                                         'default value'),
                                     const SizedBox(height: 8),
-                                    Text(DateFormat('dd-MM-yyyy')
-                                            .format(controller.frameworks[index]
-                                                .tanggal_transaksi)
-                                            .toString() ??
+                                    Text('Tanggal Transaksi : ' +
+                                            DateFormat('dd-MM-yyyy')
+                                                .format(controller
+                                                    .frameworks[index]
+                                                    .tanggal_transaksi)
+                                                .toString() ??
                                         'default value'),
                                     const SizedBox(height: 4),
                                   ],
