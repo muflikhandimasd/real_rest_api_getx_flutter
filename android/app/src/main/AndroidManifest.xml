@@ -2,7 +2,7 @@
     package="com.example.real_rest_api_getx_flutter">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="real_rest_api_getx_flutter"
+        android:label="CRUD Flutter"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
